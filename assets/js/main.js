@@ -2,10 +2,43 @@
 !(function($) {
     "use strict";
 
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Language switcher
+    const defaultLanguage = 'es';
+    const msgs = messages;
+    function getLanguage() {
+        let language = urlParams.get('lang');
+        if (language === null) {
+            language = defaultLanguage;
+        }
+        return language;
+    }
+
+    $(".lang-switch").click(function () {
+        const lang = urlParams.get("lang");
+        const language = $(this).data('language');
+        location.href = `index.html?lang=${language}`;
+    });
+
+    $(window).on('load', function() {
+        const language = getLanguage();
+
+        $('.write-msg').map(function () {
+            const element = $(this);
+            const messageKey = element.data('msg-key');
+            element.text(msgs[language][messageKey])
+        })
+    });
+
     // Hero typed
-    if ($('.typed').length) {
-        var typed_strings = $(".typed").data('typed-items');
-        typed_strings = typed_strings.split(',')
+    const typed = $('.typed');
+    if (typed.length) {
+        const language = getLanguage();
+        let typed_strings = msgs[language]['hero-typed-items'];
+        typed_strings = typed_strings.split(',');
+        console.log(language)
+        console.log(typed_strings);
         new Typed('.typed', {
             strings: typed_strings,
             loop: true,
@@ -16,25 +49,26 @@
     }
 
     // Smooth scroll for the navigation menu and links with .scrollto classes
-    $(document).on('click', '.nav-menu a, .scrollto', function(e) {
-        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    $(document).on('click', '.sidebar-menu a, .scrollto', function(e) {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
             e.preventDefault();
-            var target = $(this.hash);
+            const target = $(this.hash);
             if (target.length) {
 
-                var scrollto = target.offset().top;
+                const scrollto = target.offset().top;
 
                 $('html, body').animate({
                     scrollTop: scrollto
                 }, 1500, 'easeInOutExpo');
 
-                if ($(this).parents('.nav-menu, .mobile-nav').length) {
-                    $('.nav-menu .active, .mobile-nav .active').removeClass('active');
+                if ($(this).parents('.sidebar-menu, .mobile-nav').length) {
+                    $('.sidebar-menu .active, .mobile-nav .active').removeClass('active');
                     $(this).closest('li').addClass('active');
                 }
 
-                if ($('body').hasClass('mobile-nav-active')) {
-                    $('body').removeClass('mobile-nav-active');
+                const body = $('body');
+                if (body.hasClass('mobile-nav-active')) {
+                    body.removeClass('mobile-nav-active');
                     $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
                 }
                 return false;
@@ -52,6 +86,30 @@
     }
     $(window).on('load', function() {
         aos_init();
+    });
+
+    // Sidebar dropdown
+    $(".sidebar-dropdown > a").click(function() {
+        $(".sidebar-submenu").slideUp(200);
+        if (
+            $(this)
+                .parent()
+                .hasClass("active")
+        ) {
+            $(".sidebar-dropdown")
+                .removeClass("active");
+            $(this)
+                .parent()
+                .removeClass("active");
+        } else {
+            $(".sidebar-dropdown").removeClass("active");
+            $(this)
+                .next(".sidebar-submenu")
+                .slideDown(200);
+            $(this)
+                .parent()
+                .addClass("active");
+        }
     });
 
 })(jQuery);

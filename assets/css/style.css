@@ -98,44 +98,101 @@ h1, h2, h3, h4, h5, h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Desktop Navigation */
-.nav-menu {
+
+.sidebar-menu a,
+.sidebar-menu a i,
+.sidebar-menu .sidebar-dropdown > a:after,
+.sidebar-menu .sidebar-dropdown.active > a:after {
+    transition: 0.3s;
+}
+
+.sidebar-menu {
     padding-top: 30px;
 }
 
-.nav-menu * {
+.sidebar-menu * {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.nav-menu > ul > li {
+.sidebar-menu > ul > li {
     position: relative;
     white-space: nowrap;
 }
 
-.nav-menu a {
+.sidebar-menu a {
     display: flex;
     align-items: center;
     color: #a8a9b4;
     padding: 12px 15px;
     margin-bottom: 8px;
-    transition: 0.3s;
     font-size: 15px;
 }
 
-.nav-menu a i {
+.sidebar-menu a i {
     font-size: 24px;
     padding-right: 8px;
     color: #6f7180;
 }
 
-.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+.sidebar-menu a:hover, .sidebar-menu .active > a, .sidebar-menu li:hover > a {
     text-decoration: none;
     color: #fff;
 }
 
-.nav-menu a:hover i, .nav-menu .active > a i, .nav-menu li:hover > a i {
+.sidebar-menu a:hover i, .sidebar-menu .active > a i, .sidebar-menu li:hover > a i {
     color: #149ddd;
+}
+
+.sidebar-menu .sidebar-dropdown > a:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f105";
+    font-style: normal;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    background: 0 0;
+    position: absolute;
+    right: 15px;
+    top: 14px;
+}
+
+.sidebar-menu .sidebar-dropdown.active > a:after {
+    transform: rotate(90deg);
+    right: 17px;
+}
+
+.sidebar-menu .sidebar-dropdown .sidebar-submenu > ul {
+    padding: 5px 0;
+}
+
+.sidebar-menu .sidebar-dropdown .sidebar-submenu li {
+    padding-left: 25px;
+    font-size: 13px;
+}
+
+.sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before {
+    content: "\f111";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    font-style: normal;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: 10px;
+    font-size: 8px;
+}
+
+.sidebar-menu .sidebar-submenu {
+    display: none;
 }
 
 /* Mobile Navigation */
@@ -212,7 +269,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Poppins", sans-serif;
 }
 
-#hero p span {
+#hero p .typed {
     color: #fff;
     padding-bottom: 4px;
     letter-spacing: 1px;

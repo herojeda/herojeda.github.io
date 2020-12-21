@@ -27,6 +27,14 @@ var messages = {
         "about-email": "her.ojeda2@gmail.com",
         "about-freelance": "Available",
         "about-fullstack-brief": "As a full stack developer I not only take into account the technology I want to work with, but also that it fits to solve the problems and needs of the business. In order to have this understanding, my strategy is to get involved with the people who handle the product and with the final customer of the solution, in this way we can really determine what the product needs to solve customer problems.",
+        "section-title-contact": "Contact",
+        "contact-brief": "If you are interested in my profile, if you think I can help build your solutions or if you simply want to send me a comment, I will leave you my contact information: ",
+        "contact-field-location": "Location",
+        "contact-location": "Domingo Faustino Sarmiento 1415, B1663 San Miguel, Buenos Aires",
+        "contact-field-email": "Email",
+        "contact-email": "her.ojeda2@gmail.com",
+        "contact-field-phone": "Call & WhatsApp",
+        "contact-phone": "+54 11 68593299",
     },
 
     "es": {
@@ -56,6 +64,14 @@ var messages = {
         "about-email": "her.ojeda2@gmail.com",
         "about-freelance": "Disponible",
         "about-fullstack-brief": "Como desarrollador full stack no solo tengo en cuenta la tecnología con la que quiero trabajar, sino también que esta se ajuste para resolver los problemas y necesidades del negocio. Para tener este entendimiento mi estrategia es involucrarme con las personas que manejan el producto y con el cliente final de la solución, de esta forma podemos determinar realmente lo que el producto necesita para resolver los problemas de los clientes.",
+        "section-title-contact": "Contacto",
+        "contact-brief": "Si les resulta interesenta mi perfil, si creen que puedo ayudar a construir sus soluciones o si simplemente quieren enviarme algún comentario, les dejo mis datos de contacto: ",
+        "contact-field-location": "Ubicación",
+        "contact-location": "Domingo Faustino Sarmiento 1415, B1663 San Miguel, Provincia de Buenos Aires",
+        "contact-field-email": "Email",
+        "contact-email": "her.ojeda2@gmail.com",
+        "contact-field-phone": "Llamadas y WhatsApp",
+        "contact-phone": "+54 11 68593299",
     },
 
 };

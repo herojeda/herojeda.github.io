@@ -27,7 +27,8 @@
         $('.write-msg').map(function () {
             const element = $(this);
             const messageKey = element.data('msg-key');
-            element.text(msgs[language][messageKey])
+            const message = msgs[language][messageKey];
+            element.text(message);
         })
     });
 
@@ -37,8 +38,6 @@
         const language = getLanguage();
         let typed_strings = msgs[language]['hero-typed-items'];
         typed_strings = typed_strings.split(',');
-        console.log(language)
-        console.log(typed_strings);
         new Typed('.typed', {
             strings: typed_strings,
             loop: true,
